@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ペット体重記録・肥満診断【無料】記録・管理アプリ</title>
+    <meta name="description" content="犬・猫の体重を記録して肥満度をBCS（ボディコンディションスコア）で診断。登録不要・完全無料でご利用いただけます。">
+    <link rel="canonical" href="https://appadaycreator.github.io/pet-weight-tracker/">
+    <meta property="og:title" content="ペット体重記録・肥満診断【無料】記録・管理アプリ">
+    <meta property="og:description" content="犬・猫の体重を記録して肥満度をBCS（ボディコンディションスコア）で診断。登録不要・完全無料でご利用いただけます。">
+    <meta property="og:url" content="https://appadaycreator.github.io/pet-weight-tracker/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+    <!-- Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","s3t9vl8h3v");</script>
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ペット体重記録・肥満診断","description":"犬・猫の体重を記録して肥満度をBCS（ボディコンディションスコア）で診断。登録不要・完全無料でご利用いただけます。","url":"https://appadaycreator.github.io/pet-weight-tracker/","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background: linear-gradient(135deg, #FFEDD5 0%, #FFF7ED 100%); min-height: 100vh; color: #333; line-height: 1.6; }
+        .site-header { background: #F97316; color: white; padding: 32px 20px; text-align: center; }
+        .site-header .emoji { font-size: 52px; margin-bottom: 8px; }
+        .site-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .site-header p { font-size: 14px; opacity: 0.9; }
+        .container { max-width: 800px; margin: 0 auto; padding: 16px; }
+        .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 16px; }
+        .btn { background: #F97316; color: white; border: none; padding: 14px 24px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: opacity .2s; }
+        .btn:hover { opacity: 0.9; }
+        .btn:active { transform: scale(0.98); }
+        input, select, textarea { width: 100%; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 15px; margin-top: 4px; font-family: inherit; }
+        input:focus, select:focus { outline: none; border-color: #F97316; }
+        label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-top: 14px; margin-bottom: 2px; }
+        .result { display: none; }
+        .result.show { display: block; }
+        .result-value { font-size: 36px; font-weight: 700; color: #F97316; text-align: center; padding: 16px 0; }
+        .badge { display: inline-block; background: #F9731620; color: #F97316; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        /* ── サービス固有CSS ── */
+        .bcs-badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-left:8px;}
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="site-header">
+        <div class="emoji">⚖️</div>
+        <h1>ペット体重記録・肥満診断</h1>
+        <p>犬・猫の体重を記録して肥満度をBCS（ボディコンディションスコア）で診断。</p>
+    </header>
+
+    <main class="container">
+        <ins class="adsbygoogle" style="display:block;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div class="card">
+          <h2 style="font-size:18px;font-weight:700;margin-bottom:16px;">⚖️ 体重を記録する</h2>
+          <div style="display:flex;gap:8px;margin-bottom:4px;">
+            <div style="flex:1;">
+              <label>ペット種別</label>
+              <select id="pet-type" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;">
+                <option value="dog">犬</option><option value="cat">猫</option>
+              </select>
+            </div>
+            <div style="flex:1;">
+              <label>体重（kg）</label>
+              <input type="number" id="weight" placeholder="例: 5.2" min="0.1" step="0.1">
+            </div>
+          </div>
+          <label style="margin-top:8px;">メモ（任意）</label>
+          <input type="text" id="memo" placeholder="例: 食欲あり・元気">
+          <button class="btn" style="margin-top:16px;" onclick="addEntry()">記録する</button>
+        </div>
+        <div class="card" style="margin-top:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <h2 style="font-size:16px;font-weight:700;">📋 記録一覧</h2>
+            <span id="entry-count" style="font-size:12px;color:#999;"></span>
+          </div>
+          <div id="entries"><p style="text-align:center;color:#bbb;font-size:14px;padding:20px;">まだ記録がありません</p></div>
+        </div>
+        <div class="result" id="result" style="margin-top:12px;">
+          <div class="card">
+            <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;color:#F97316;">📊 サマリー</h3>
+            <div id="summary"></div>
+          </div>
+        </div>
+
+        <!-- 関連サービス -->
+        <div class="card" style="margin-top:8px;">
+            <h3 style="font-size:13px;font-weight:600;color:#888;margin-bottom:10px;">🔗 関連サービス</h3>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+                <a href="https://appadaycreator.github.io/dog-walk-tracker/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">🐕 犬の散歩記録アプリ →</a>
+                <a href="https://appadaycreator.github.io/pet-food-advisor/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">ペットフード・用品診断 →</a>
+                <a href="https://appadaycreator.github.io/pet-care-cost-simulator/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">ペット飼育費用シミュレーター →</a>
+            </div>
+        </div>
+
+        <ins class="adsbygoogle" style="display:block;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </main>
+
+    <footer style="text-align:center;padding:20px;color:white;font-size:12px;opacity:0.75;margin-top:8px;">
+        <p><a href="https://appadaycreator.github.io/" style="color:white;">AppADayCreator</a>
+        | <a href="privacy-policy.html" style="color:white;">プライバシーポリシー</a>
+        | <a href="terms.html" style="color:white;">利用規約</a>
+        | <a href="contact.html" style="color:white;">お問い合わせ</a></p>
+        <p style="margin-top:6px;">© 2025 AppADayCreator. All services are free.</p>
+    </footer>
+
+    <script>
+    const BTN_COLOR = '#F97316';
+    const STORAGE_KEY = 'pet-weight-tracker-entries';
+    let entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+    const BCS = {
+      dog: [{max:3,'label':'痩せ気味','color':'#3b82f6'},{max:5,'label':'適正体重','color':'#16a34a'},{max:7,'label':'やや肥満','color':'#f59e0b'},{max:99,'label':'肥満','color':'#ef4444'}],
+      cat: [{max:2.5,'label':'痩せ気味','color':'#3b82f6'},{max:4.5,'label':'適正体重','color':'#16a34a'},{max:6,'label':'やや肥満','color':'#f59e0b'},{max:99,'label':'肥満','color':'#ef4444'}]
+    };
+
+    function getBcs(type, weight) {
+      for (const b of BCS[type]) { if (weight <= b.max) return b; }
+      return BCS[type][BCS[type].length - 1];
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('weight').addEventListener('keydown', e => { if (e.key === 'Enter') addEntry(); });
+      renderEntries(); updateSummary();
+    });
+
+    function addEntry() {
+      const weight = parseFloat(document.getElementById('weight').value);
+      const type = document.getElementById('pet-type').value;
+      const memo = document.getElementById('memo').value.trim();
+      if (isNaN(weight) || weight <= 0) { alert('体重を入力してください'); return; }
+      const bcs = getBcs(type, weight);
+      const entry = { id: Date.now(), date: new Date().toLocaleDateString('ja-JP'), type, weight, memo, bcsLabel: bcs.label, bcsColor: bcs.color };
+      entries.unshift(entry);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+      renderEntries(); updateSummary();
+      document.getElementById('weight').value = '';
+      document.getElementById('memo').value = '';
+      document.getElementById('result').classList.add('show');
+    }
+
+    function deleteEntry(id) {
+      entries = entries.filter(e => e.id !== id);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+      renderEntries(); updateSummary();
+    }
+
+    function renderEntries() {
+      const container = document.getElementById('entries');
+      document.getElementById('entry-count').textContent = entries.length + '件';
+      if (entries.length === 0) { container.innerHTML = '<p style="text-align:center;color:#bbb;font-size:14px;padding:20px;">まだ記録がありません</p>'; return; }
+      container.innerHTML = entries.map(e => `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #f1f5f9;">
+          <div>
+            <span style="font-size:12px;color:#999;">${e.date} ${e.type==='dog'?'🐕':'🐈'}</span>
+            <span class="bcs-badge" style="background:${e.bcsColor}20;color:${e.bcsColor};">${e.bcsLabel}</span><br>
+            <span style="font-weight:700;font-size:15px;">${e.weight} kg</span>
+            ${e.memo ? `<span style="font-size:12px;color:#888;margin-left:6px;">${e.memo}</span>` : ''}
+          </div>
+          <button onclick="deleteEntry(${e.id})" style="color:#ef4444;background:none;border:none;cursor:pointer;font-size:12px;">削除</button>
+        </div>`).join('');
+    }
+
+    function updateSummary() {
+      if (entries.length === 0) { document.getElementById('summary').innerHTML = '<p style="color:#666;font-size:14px;">記録を追加するとサマリーが表示されます</p>'; return; }
+      const weights = entries.map(e => e.weight);
+      const avg = (weights.reduce((a,b)=>a+b,0)/weights.length).toFixed(2);
+      const latest = entries[0];
+      const oldest = entries[entries.length-1];
+      const diff = (latest.weight - oldest.weight).toFixed(2);
+      const bcs = getBcs(latest.type, latest.weight);
+      document.getElementById('summary').innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:14px;">
+          <div style="padding:10px;background:#fff7ed;border-radius:8px;text-align:center;"><div style="color:#888;font-size:12px;">記録数</div><div style="font-weight:700;font-size:18px;">${entries.length}件</div></div>
+          <div style="padding:10px;background:#fff7ed;border-radius:8px;text-align:center;"><div style="color:#888;font-size:12px;">最新体重</div><div style="font-weight:700;font-size:18px;color:${BTN_COLOR};">${latest.weight}kg</div></div>
+          <div style="padding:10px;background:#fff7ed;border-radius:8px;text-align:center;"><div style="color:#888;font-size:12px;">平均体重</div><div style="font-weight:700;font-size:18px;">${avg}kg</div></div>
+          <div style="padding:10px;background:#fff7ed;border-radius:8px;text-align:center;"><div style="color:#888;font-size:12px;">増減</div><div style="font-weight:700;font-size:18px;color:${parseFloat(diff)>0?'#ef4444':parseFloat(diff)<0?'#16a34a':'#333'};">${diff>0?'+':''}${diff}kg</div></div>
+        </div>
+        <div style="margin-top:10px;padding:10px;border-radius:8px;background:${bcs.color}15;text-align:center;">
+          <span style="font-weight:700;color:${bcs.color};">BCS判定: ${bcs.label}</span>
+          <span style="font-size:12px;color:#666;margin-left:8px;">${bcs.label==='適正体重'?'理想的な体重です！':'獣医師への相談をおすすめします'}</span>
+        </div>`;
+    }
+    </script>
+</body>
+</html>
