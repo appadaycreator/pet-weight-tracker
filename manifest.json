@@ -1,8 +1,9 @@
 {
   "name": "Pet Weight Tracker",
   "short_name": "pet-weight-t",
-  "start_url": "/",
+  "start_url": "/pet-weight-tracker/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#6366f1"
+  "theme_color": "#6366f1",
+  "scope": "/pet-weight-tracker/"
 }
