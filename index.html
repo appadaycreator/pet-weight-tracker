@@ -104,6 +104,20 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         .result{display:none;} .result.show{display:block;}
         .bcs-badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-left:8px;}
 
+        /* マイペット dashboard mock (empty state) */
+        .mock{background:#fff;border-radius:16px;border:1px solid #fbece2;overflow:hidden;box-shadow:0 6px 20px rgba(180,120,80,.10);}
+        .mock .top{background:var(--primary);color:#fff;padding:11px 16px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px;}
+        .mock .body{padding:16px;}
+        .mock .row{display:flex;gap:12px;align-items:center;}
+        .mock .pet-ph{width:78px;height:78px;border-radius:14px;background-size:cover;background-position:center;flex:0 0 78px;}
+        .mock .kg{font-size:28px;font-weight:900;color:var(--primary);}
+        .mock .chart{margin-top:14px;height:88px;background:linear-gradient(180deg,#fff7f2,#fff);border-radius:12px;overflow:hidden;border:1px solid #fbece2;}
+        .mock .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+        .mock .stat{background:#fff7ed;border-radius:10px;padding:8px;text-align:center;}
+        .mock .stat .l{font-size:10px;color:#999;}
+        .mock .stat .v{font-size:14px;font-weight:800;}
+        .mock .hint{text-align:center;font-size:12px;color:#a99;margin-top:12px;}
+
         /* feature icon grid */
         .icongrid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
         @media(max-width:860px){.icongrid{grid-template-columns:repeat(3,1fr);}}
@@ -235,7 +249,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <div class="wrap grid2">
           <!-- left: form -->
           <div class="card">
-            <h2 style="font-size:18px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px;"><img src="assets/icons/split/02-01.png" alt="" style="width:26px;height:26px;">体重を記録する</h2>
+            <h2 style="font-size:18px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px;"><img src="assets/icons/split/02-01.png" alt="" style="width:26px;height:26px;">今日の体重を記録</h2>
             <p style="font-size:12.5px;color:var(--muted);margin-bottom:6px;">毎週同じ時間に計測すると変化を比較しやすくなります。</p>
             <div style="display:flex;gap:10px;">
               <div style="flex:1;">
@@ -270,9 +284,30 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
                 <button onclick="window.print()" class="btn" style="flex:1;min-width:120px;background:#7c3aed;padding:11px 14px;font-size:13px;"><img src="assets/icons/split/03-03.png" alt="" style="width:16px;height:16px;display:inline;vertical-align:-3px;margin-right:4px;">印刷</button>
               </div>
             </div>
-            <div id="empty-graph" style="text-align:center;color:#bba;padding:30px 10px;">
-              <img src="assets/photos/photo_07.jpg" alt="ペットのイメージ" style="width:100%;max-width:240px;border-radius:14px;margin:0 auto 12px;">
-              <p style="font-size:13px;">体重を2回以上記録すると<br>グラフとBCS診断が表示されます</p>
+            <div id="empty-graph" class="mock" aria-hidden="true">
+              <div class="top"><img src="assets/icons/split/01-08.png" alt="" style="width:20px;height:20px;">マイペット（記録例）</div>
+              <div class="body">
+                <div class="row">
+                  <div class="pet-ph" style="background-image:url('assets/photos/photo_05.jpg');"></div>
+                  <div>
+                    <div style="font-size:11px;color:#999;">今日の体重</div>
+                    <div class="kg">5.20 <span style="font-size:15px;">kg</span></div>
+                    <div style="font-size:11px;color:#16a34a;font-weight:700;">BCS 5 ／ 適正体重</div>
+                  </div>
+                </div>
+                <div class="chart">
+                  <svg viewBox="0 0 300 88" width="100%" height="88" preserveAspectRatio="none">
+                    <polyline points="6,60 50,52 95,55 140,42 185,46 230,34 290,30" fill="none" stroke="#FF6B35" stroke-width="3"/>
+                    <line x1="6" y1="40" x2="294" y2="40" stroke="#16a34a" stroke-dasharray="5 5" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="stats">
+                  <div class="stat"><div class="l">平均体重</div><div class="v">5.05kg</div></div>
+                  <div class="stat"><div class="l">増減</div><div class="v" style="color:#16a34a;">-0.30kg</div></div>
+                  <div class="stat"><div class="l">達成度</div><div class="v" style="color:#0284c7;">104%</div></div>
+                </div>
+                <p class="hint">体重を2回以上記録すると、あなたのペットのグラフとBCS診断が表示されます</p>
+              </div>
             </div>
           </div>
         </div>
