@@ -65,7 +65,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         .btn-accent:hover{filter:brightness(.97);}
 
         /* HERO with full photo */
-        .hero{position:relative;min-height:580px;display:flex;align-items:center;background-image:linear-gradient(90deg,rgba(253,238,222,.97) 0%,rgba(253,238,222,.86) 42%,rgba(255,228,205,.45) 100%),url('../assets/photos/photo_01.jpg');background-size:cover;background-position:center right;}
+        .hero{position:relative;min-height:600px;display:flex;align-items:center;background-image:linear-gradient(90deg,rgba(253,238,222,.96) 0%,rgba(253,238,222,.82) 36%,rgba(255,228,205,.22) 68%,rgba(255,228,205,0) 100%),url('../assets/photos/photo_01.jpg');background-size:cover;background-position:center right;}
         .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;padding-top:60px;padding-bottom:60px;}
         .hero .copy h1{font-size:52px;line-height:1.22;font-weight:900;letter-spacing:.5px;}
         .hero .copy h1 .sm{display:block;font-size:30px;font-weight:800;color:var(--ink);margin-bottom:4px;}
@@ -93,7 +93,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
           .mock{max-width:420px;}
         }
 
-        section.block{padding:66px 0;}
+        section.block{padding:52px 0;}
         section.alt{background:var(--cream);}
         h2.sec{font-size:27px;font-weight:900;text-align:center;margin-bottom:8px;}
         h2.sec .ac{color:var(--primary);}
@@ -150,6 +150,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         .trustc .circ{margin:0 auto 10px;}
         .trustc h4{font-size:13.5px;font-weight:800;margin-bottom:4px;}
         .trustc p{font-size:12px;color:var(--muted);}
+
+        /* breed silhouette strip */
+        .breedstrip{background:linear-gradient(135deg,var(--peach),#ffeede);border-radius:20px;padding:22px 16px;border:1px solid #fbece2;margin-top:8px;}
+        .breedstrip .row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+        .breedstrip .s{width:62px;height:62px;border-radius:50%;background:#fff;border:1px solid var(--peach2);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(180,120,80,.10);}
+        .breedstrip .s img{width:40px;height:40px;}
+        @media(max-width:760px){.breedstrip .s{width:52px;height:52px;}.breedstrip .s img{width:32px;height:32px;}}
+
+        /* 5 facts */
+        .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+        @media(max-width:920px){.facts{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:480px){.facts{grid-template-columns:1fr;}}
+        .factc{background:#fff;border:1px solid #fbece2;border-radius:16px;padding:20px 16px;text-align:center;box-shadow:0 5px 16px rgba(180,120,80,.09);position:relative;}
+        .factc .no{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(255,107,53,.35);}
+        .factc img{width:44px;height:44px;margin:12px auto 10px;}
+        .factc h3{font-size:14px;font-weight:800;margin-bottom:6px;}
+        .factc p{font-size:12px;color:var(--muted);line-height:1.6;}
 
         .cta-band{background:linear-gradient(135deg,var(--primary),#ff8c42);color:#fff;text-align:center;padding:72px 24px;box-shadow:inset 0 8px 24px rgba(0,0,0,.06);}
         .cta-band .eyebrow{font-size:14px;font-weight:800;letter-spacing:2px;opacity:.92;margin-bottom:10px;}
@@ -291,8 +308,39 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       </div>
     </section>
 
-    <!-- recommend -->
+    <!-- 5 facts -->
     <section class="block">
+      <div class="wrap">
+        <h2 class="sec">知っておきたい、<span class="ac">ペット肥満の5つのこと</span></h2>
+        <p class="sec-lead">愛犬・愛猫の健康寿命を延ばすために、まず押さえておきたいポイントです。</p>
+        <div class="facts">
+          <div class="factc"><div class="no">1</div><img src="../assets/icons/split/03-01.png" alt=""><h3>3頭に1頭が肥満傾向</h3><p>犬猫の約3〜4割が肥満または肥満予備軍といわれています。</p></div>
+          <div class="factc"><div class="no">2</div><img src="../assets/icons/split/03-02.png" alt=""><h3>見た目では気づきにくい</h3><p>毎日見ているからこそ、少しずつの増加に気づきにくいものです。</p></div>
+          <div class="factc"><div class="no">3</div><img src="../assets/icons/split/03-03.png" alt=""><h3>病気のリスクが上がる</h3><p>関節・心臓・糖尿病など、さまざまな不調の引き金になります。</p></div>
+          <div class="factc"><div class="no">4</div><img src="../assets/icons/split/03-04.png" alt=""><h3>BCSで体型を見える化</h3><p>体重だけでなくBCSで体型を判定すると変化を把握しやすくなります。</p></div>
+          <div class="factc"><div class="no">5</div><img src="../assets/icons/split/03-05.png" alt=""><h3>記録の継続が予防になる</h3><p>こまめな記録が、早期発見と無理のない体重管理につながります。</p></div>
+        </div>
+        <div class="breedstrip" style="margin-top:30px;">
+          <p style="text-align:center;font-size:13px;font-weight:800;color:var(--primary-d);margin-bottom:14px;">犬種・猫種を問わず、小型犬から大型犬・猫まで対応</p>
+          <div class="row">
+            <div class="s"><img src="../assets/icons/split/04-01.png" alt="犬"></div>
+            <div class="s"><img src="../assets/icons/split/04-02.png" alt="犬"></div>
+            <div class="s"><img src="../assets/icons/split/04-03.png" alt="犬"></div>
+            <div class="s"><img src="../assets/icons/split/04-04.png" alt="犬"></div>
+            <div class="s"><img src="../assets/icons/split/04-05.png" alt="犬"></div>
+            <div class="s"><img src="../assets/icons/split/04-06.png" alt="犬"></div>
+            <div class="s"><img src="../assets/icons/split/04-07.png" alt="猫"></div>
+            <div class="s"><img src="../assets/icons/split/04-08.png" alt="猫"></div>
+            <div class="s"><img src="../assets/icons/split/03-06.png" alt="猫"></div>
+            <div class="s"><img src="../assets/icons/split/03-07.png" alt="猫"></div>
+            <div class="s"><img src="../assets/icons/split/03-08.png" alt="猫"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- recommend -->
+    <section class="block alt">
       <div class="wrap">
         <h2 class="sec">こんな方に<span class="ac">おすすめ</span></h2>
         <p class="sec-lead">愛犬・愛猫の健康を毎日見守りたいすべての飼い主さんへ。</p>
@@ -308,7 +356,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     </section>
 
     <!-- trust -->
-    <section class="block alt">
+    <section class="block">
       <div class="wrap">
         <h2 class="sec">安心して使える<span class="ac">理由</span></h2>
         <div class="trust" style="margin-top:18px;">
@@ -321,7 +369,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     </section>
 
     <!-- FAQ -->
-    <section class="block" id="faq">
+    <section class="block alt" id="faq">
       <div class="wrap" style="max-width:760px;">
         <h2 class="sec">よくある<span class="ac">質問</span></h2>
         <div style="margin-top:18px;">
